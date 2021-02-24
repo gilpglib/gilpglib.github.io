@@ -111,7 +111,7 @@ function botón(txt, fun) {
 function pegaBotón(x, y, txt, fun) {
   let bot = document.createElement("button");
   bot.style.position = "fixed";
-  bot.style.bottom = `${y}px`;
+  bot.style.top = `${y}px`;
   bot.style.left = `${x}px`;
   bot.textContent = txt;
   bot.addEventListener("click", fun);
