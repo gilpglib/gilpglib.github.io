@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Perros");
+  fondo("https://media.giphy.com/media/3oKIPhf02cXU9W4Le0/giphy.gif");
+  color("white");
+  // backgroundColor("blue");
+  println("Hola");
+  print("Esta es una prueba");
+  for (var i = 0; i < innerWidth; i += 20) {
+    pega(i, 200, "🛸");
+  }
+  var x = 0;
+  var perro = sprite(x, 0, 32, "🐕‍🦺");
+  var x2 = 0;
+  var perro2 = sprite(x2, 100, 40, "🐕‍");
+  setInterval(() => {
+    mueve(x, x * 0.5, perro);
+    if (seTocan(perro, perro2)) {
+      println("Choque");
+    }
+    x = (x + 0.5 + random(-4, 4)) % innerWidth;
+  }, 5);
+  pegaBotón(20, 60, "▶", () => {
+    x2 += 10;
+    mueve(x2, 100, perro2);
+  });
+  botón("chisme", () => {
+    println("");
+    print("Chisme chisme")
+  });
+</script>

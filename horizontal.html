@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Animación Horizontal");
+  const TAMAÑO = 64; // px
+  const REFRESCO = 5;
+  const VELOCIDAD = 0.5;
+  const X_MÍNIMA = 0;
+  const X_MÁXIMA = innerWidth;
+  const Y = innerHeight / 2;
+  var x = X_MÍNIMA;
+  var carita =
+    sprite(x, Y, TAMAÑO, "😄");
+  setInterval(() => {
+    mueve(x, Y, carita);
+    x = (x + VELOCIDAD) % X_MÁXIMA;
+  }, REFRESCO);
+</script>

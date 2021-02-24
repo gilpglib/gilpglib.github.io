@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Animación Recta");
+  const TAMAÑO = 64; // px
+  const REFRESCO = 5;
+  const VELOCIDAD = 0.5;
+  const X_INICIAL = 0;
+  const X_FINAL = innerWidth;
+  const Y_INICIAL =
+    innerHeight / 2;
+  const Y_FINAL = innerHeight;
+  var x = X_INICIAL;
+  var y = Y_INICIAL;
+  var carita =
+    sprite(x, y, TAMAÑO, "😄");
+  setInterval(() => {
+    y = ((Y_FINAL - Y_INICIAL) /
+      (X_FINAL - X_INICIAL)) *
+      (x - X_INICIAL) +
+      Y_INICIAL;
+    mueve(x, y, carita);
+    x = (x + VELOCIDAD) % X_FINAL;
+  }, REFRESCO);
+</script>
