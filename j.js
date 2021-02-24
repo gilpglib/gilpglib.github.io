@@ -1,6 +1,5 @@
 document.write(/* html */
-  `<meta charset="utf-8">
-  <meta name="viewport"
+  `<meta name="viewport"
   content="width=device-width,
      initial-scale=1.0">
   <link rel="icon" sizes="32x32"
