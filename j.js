@@ -4,8 +4,9 @@ document.write(/* html */
      initial-scale=1.0">
   <link rel="icon" sizes="32x32"
     href="https://gilpglib.github.io/favicon.ico">
-  </head>
-  <body>
+  <style>
+    html {font-family: sans-serif}
+  </style>
   <h1></h1><pre><output></output></pre>`);
 
 /** Asigna un título a la página.
