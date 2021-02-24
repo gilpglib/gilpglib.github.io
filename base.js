@@ -3,6 +3,8 @@ document.write(/* html */
   <meta name="viewport"
   content="width=device-width,
      initial-scale=1.0">
+  <link rel="icon" sizes="32x32"
+    href="https://gilpglib.github.io/favicon.ico">
   <h1></h1><pre><output></output></pre>`);
 
 /** Asigna un título a la página.
