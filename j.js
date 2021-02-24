@@ -5,7 +5,7 @@ document.write(/* html */
   <link rel="icon" sizes="32x32"
     href="https://gilpglib.github.io/favicon.ico">
   <style>
-    html {font-family: sans-serif}
+    h1 {font-family: sans-serif}
   </style>
   <h1></h1><pre><output></output></pre>`);
 
