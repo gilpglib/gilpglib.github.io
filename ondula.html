@@ -5,18 +5,25 @@
 https://gilpglib.github.io/j.js">
 </script>
 <script>
-  title("Animación Horizontal");
+  title("Ondula");
   const TAMAÑO = 64; // px
   const REFRESCO = 5;
   const VELOCIDAD = 0.5;
+  const FRECUENCIA = 0.03;
   const X_MÍNIMA = 0;
   const X_MÁXIMA = innerWidth;
-  const Y = innerHeight / 2;
+  const amplitud =
+    innerHeight / 3;
+  const Y_BASE = innerHeight / 2;
   var x = X_MÍNIMA;
+  var y = Y_BASE;
   var carita =
-    sprite(x, Y, TAMAÑO, "😄");
+    sprite(x, y, TAMAÑO, "😄");
   setInterval(() => {
-    mueve(x, Y, carita);
+    y = Y_BASE +
+      amplitud *
+      Math.sin(FRECUENCIA * x);
+    mueve(x, y, carita);
     x =
       (x + VELOCIDAD) % X_MÁXIMA;
   }, REFRESCO);

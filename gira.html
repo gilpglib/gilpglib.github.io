@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Ondula");
+  const TAMAÑO = 64; // px
+  const REFRESCO = 120;
+  const VELOCIDAD = 0.3;
+  const X_BASE = innerWidth / 2;
+  const AMPLITUD_X =
+    innerWidth / 3;
+  const Y_BASE = innerHeight / 2;
+  const AMPLITUD_Y =
+    innerHeight / 3;
+  let ángulo = 0;
+  var mariposa =
+    sprite(0, 0, TAMAÑO, "🦋");
+  setInterval(() => {
+    const x = X_BASE +
+      AMPLITUD_X *
+      Math.cos(ángulo);
+    const y = Y_BASE +
+      AMPLITUD_Y *
+      Math.sin(ángulo);
+    mueve(x, y, mariposa);
+    ángulo += VELOCIDAD;
+  }, REFRESCO);
+</script>
