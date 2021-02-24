@@ -5,6 +5,8 @@ document.write(/* html */
      initial-scale=1.0">
   <link rel="icon" sizes="32x32"
     href="https://gilpglib.github.io/favicon.ico">
+  </head>
+  <body>
   <h1></h1><pre><output></output></pre>`);
 
 /** Asigna un título a la página.
@@ -109,7 +111,7 @@ function botón(txt, fun) {
 function pegaBotón(x, y, txt, fun) {
   let bot = document.createElement("button");
   bot.style.position = "fixed";
-  bot.style.top = `${y}px`;
+  bot.style.bottom = `${y}px`;
   bot.style.left = `${x}px`;
   bot.textContent = txt;
   bot.addEventListener("click", fun);
