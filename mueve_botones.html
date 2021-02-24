@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Mueve con Botones");
+  const TAMAÑO = 64; // px
+  const REFRESCO = 5;
+  const VELOCIDAD = 30;
+  const X_MÍNIMA = innerWidth / 5;
+  const X_MÁXIMA =
+    4 * innerWidth / 5;
+  const Y = innerHeight / 2;
+  var x = X_MÍNIMA;
+  var carita =
+    sprite(x, Y, TAMAÑO, "😄");
+  botón("◀", () => {
+    if (x > X_MÍNIMA) {
+      x -= VELOCIDAD;
+      mueve(x, Y, carita);
+    }
+  });
+  botón("▶", () => {
+    if (x < X_MÁXIMA) {
+      x += VELOCIDAD;
+      mueve(x, Y, carita);
+    }
+  });
+</script>

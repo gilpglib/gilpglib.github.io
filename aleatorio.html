@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Mueve Aleatorio");
+  const TAMAÑO = 64; // px
+  const REFRESCO = 5;
+  const RUIDO = 4;
+  const A_LA_DERECHA = 0.5;
+  const A_LA_IZQUIERDA = -0.5;
+  const X_MÍNIMA = 0;
+  const X_MÁXIMA = innerWidth;
+  const Y = innerHeight / 2;
+  var x = X_MÍNIMA;
+  var velocidad = A_LA_DERECHA;
+  var carita =
+    sprite(x, Y, TAMAÑO, "😄");
+  setInterval(() => {
+    mueve(x, Y, carita);
+    x += velocidad +
+      random(-RUIDO, RUIDO);
+    if (x < 0) {
+      x = 0;
+      velocidad = A_LA_DERECHA;
+    } else if (x > X_MÁXIMA) {
+      x = X_MÁXIMA;
+      velocidad = A_LA_IZQUIERDA;
+    }
+  }, REFRESCO);
+</script>

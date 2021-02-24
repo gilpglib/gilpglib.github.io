@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Adorno Horizontal");
+  println("Hola.")
+  const TAMAÑO = 16; // px
+  const DISTANCIA = 20;
+  const X_MÍNIMA = 0;
+  const X_MÁXIMA = innerWidth;
+  const Y = 0;
+  var x = X_MÍNIMA;
+  while (x < X_MÁXIMA) {
+    sprite(x, Y, TAMAÑO, "💕");
+    x += DISTANCIA;
+  }
+</script>

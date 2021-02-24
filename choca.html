@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Choca");
+  const TAMAÑO = 64; // px
+  const REFRESCO = 5;
+  const VELOCIDAD = 0.5;
+  const X_MÍNIMA = 0;
+  const X_MÁXIMA = innerWidth;
+  const X_TRISTE = innerWidth / 2;
+  const Y = innerHeight / 2;
+  var x = X_MÍNIMA;
+  const abrazo =
+    sprite(x, Y, TAMAÑO, "🤗");
+  abrazo.style.backgroundColor =
+    "greenyellow";
+  const triste = sprite(
+    X_TRISTE, Y, TAMAÑO, "😪");
+  triste.style.backgroundColor =
+    "gray";
+  setInterval(() => {
+    mueve(x, Y, abrazo);
+    if (!seTocan(abrazo, triste)) {
+      x =
+        (x + VELOCIDAD) % X_MÁXIMA;
+    }
+  }, REFRESCO);
+</script>

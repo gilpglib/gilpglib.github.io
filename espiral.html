@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Espiral");
+  println("Hola.")
+  const TAMAÑO = 8; // px
+  const INCREMENTO =
+    2 * Math.PI / 21;
+  const X_BASE = innerWidth / 2;
+  const Y_BASE = innerHeight / 2;
+  const ÁNGULO_FINAL =
+    6 * Math.PI;
+  const AMPLITUD = Math.min(
+    window.innerHeight,
+    window.innerWidth) /
+    (3 * ÁNGULO_FINAL);
+  for (let ángulo = 0;
+    ángulo <= ÁNGULO_FINAL;
+    ángulo += INCREMENTO) {
+    const r =
+      AMPLITUD * ángulo;
+    const x = X_BASE +
+      r * Math.cos(ángulo);
+    const y = Y_BASE +
+      r * Math.sin(ángulo);
+    sprite(x, y, TAMAÑO, "⌛");
+  }
+</script>

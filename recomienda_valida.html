@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Recomienda con switch-default");
+  var género = "";
+  do {
+    género = prompt(
+      `Introduce un género musical.
+Puede ser:
+  cumbia, pop, balada o mariachi`,
+      género);
+  } while (género !== "cumbia" &&
+  género !== "pop" &&
+  género !== "balada" &&
+    género !== "mariachi");
+  println("Género:");
+  println(género);
+  println("Recomendación:");
+  switch (género) {
+    case "cumbia":
+      println("Selena");
+      break;
+    case "pop":
+      println("Belinda");
+    case "balada":
+    case "mariachi":
+      println("Juan Gabriel");
+      break;
+    default:
+      println(
+        "Género desconocido.");
+      break;
+  }
+</script>
