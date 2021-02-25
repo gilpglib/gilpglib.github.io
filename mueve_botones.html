@@ -13,8 +13,8 @@ https://gilpglib.github.io/j.js">
   const X_MÁXIMA =
     4 * innerWidth / 5;
   const Y = innerHeight / 2;
-  var x = X_MÍNIMA;
-  var carita =
+  let x = X_MÍNIMA;
+  const carita =
     sprite(x, Y, TAMAÑO, "😄");
   botón("◀", () => {
     if (x > X_MÍNIMA) {

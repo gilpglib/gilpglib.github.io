@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Crea Promesas");
+  ejecuta();
+  function
+    prom(resultado, timeout) {
+    return new Promise(
+      (resolve, reject) =>
+        setTimeout(() => {
+          if (resultado) {
+            resolve("Éxito[" +
+              resultado + "]");
+          } else {
+            reject(new Error(
+              "Falla[" +
+              resultado + "]"));
+          }
+        }, timeout));
+  }
+  async function ejecuta() {
+    try {
+      const r1 =
+        await Promise.all([
+          prom("a", 300),
+          prom("z", 2000),
+          prom("b", 5000)]);
+      println("ÉXITO 1:");
+      println(r1.join("\n"));
+    } catch (e) {
+      println("FALLO 2:");
+      println(e.message);
+    }
+    println("----------------");
+    try {
+      const r2 =
+        await Promise.all([
+          prom("a", 100),
+          prom("", 1000),
+          prom("b", 5000)]);
+      println("ÉXITO 2:");
+      println(r2.join("\n"));
+    } catch (e) {
+      println("FALLO 2:");
+      println(e.message);
+    }
+  }
+</script>

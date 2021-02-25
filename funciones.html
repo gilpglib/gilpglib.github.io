@@ -15,9 +15,10 @@ https://gilpglib.github.io/j.js">
   let x = X_MÍNIMA;
   const carita =
     sprite(x, Y, TAMAÑO, "😄");
-  setInterval(() => {
+  setInterval(anima, REFRESCO);
+  function anima() {
     mueve(x, Y, carita);
     x =
       (x + VELOCIDAD) % X_MÁXIMA;
-  }, REFRESCO);
+  }
 </script>

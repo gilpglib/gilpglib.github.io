@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Promesas Originales");
+  Promise.resolve("Hola").
+    then(s => println(
+      `Éxito 1: ${s}`)).
+    catch(e => println(
+      `Fallo 1: ${e.message}`));
+  Promise.
+    reject(new Error("ouch")).
+    then(s => println(
+      `Éxito 2: ${s}`)).
+    catch(e => println(
+      `Fallo 2: ${e.message}`));
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Excepciones con Anidación");
+  try {
+    println("Empezamos.");
+    fallo();
+    println("No me ignores.");
+  } catch (e) {
+    println(e.message);
+  }
+  println("Terminamos.");
+  function fallo() {
+    println("¿Fallaremos?");
+    throw new Error("Fallamos");
+    println(
+      "Tampoco me ignores.");
+  }
+</script>

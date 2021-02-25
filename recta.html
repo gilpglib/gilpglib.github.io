@@ -14,9 +14,9 @@ https://gilpglib.github.io/j.js">
   const Y_INICIAL =
     innerHeight / 2;
   const Y_FINAL = innerHeight;
-  var x = X_INICIAL;
-  var y = Y_INICIAL;
-  var carita =
+  let x = X_INICIAL;
+  let y = Y_INICIAL;
+  const carita =
     sprite(x, y, TAMAÑO, "😄");
   setInterval(() => {
     y = ((Y_FINAL - Y_INICIAL) /

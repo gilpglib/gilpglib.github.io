@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("try-finally");
+  try {
+    println("Sin error.");
+  } finally {
+    println("Si se ejecuta.");
+  }
+  print("Continuamos porque ");
+  println("no hay falla.");
+  try {
+    throw new Error("A volar.");
+    println(
+      "Esto no se ejecuta.");
+  } finally {
+    print("Se ejecuta, pero ");
+    print("no normaliza ");
+    println("el flujo.");
+  }
+  print("Esta instrucción no ");
+  println("se realiza.");
+</script>

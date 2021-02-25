@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Asociaciones");
+
+  /** @interface */
+  class SeMueve {
+    muévete() {
+      throw new Error("intf");
+    }
+  }
+
+  /** @implements {SeMueve} */
+  class Perro {
+    constructor() {
+      const tamaño = 45;
+      this.x = innerWidth -
+        tamaño - 20;
+      this.y = innerHeight -
+        tamaño - 20;
+      this.sprite = sprite(
+        this.x, this.y, tamaño,
+        "🐕");
+    }
+    muévete() {
+      this.x = this.x - 30;
+      if (this.x <= 0) {
+        this.x = innerWidth;
+      }
+      mueve(this.x, this.y,
+        this.sprite);
+    }
+  }
+
+  /** @implements {SeMueve} */
+  class Águila {
+    constructor() {
+      this.x =
+        random(0, innerWidth);
+      this.y =
+        random(0, innerHeight);
+      this.sprite = sprite(
+        this.x, this.y, 64, "🦅");
+    }
+    muévete() {
+      this.y = (this.y + 10) %
+        innerHeight;
+      mueve(this.x, this.y,
+        this.sprite);
+    }
+  }
+
+  class Controlador {
+    constructor() {
+      this.perro = new Perro();
+      this.águilas = [
+        new Águila(),
+        new Águila()];
+    }
+    muévete() {
+      this.perro.muévete();
+      for (let águila of
+        this.águilas) {
+        águila.muévete();
+      }
+    }
+  }
+
+  const ctrl = new Controlador();
+  botón("Mueve",
+    () => ctrl.muévete());
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Instancias");
+  const REFRESCO = 5;
+  
+  class Horizontal2 {
+    constructor(y, velocidad,
+      tamaño, txt) {
+      this.x = 0;
+      this.y = y;
+      this.velocidad = velocidad;
+      this.tamaño = tamaño;
+      this.sprite = sprite(
+        this.x, this.y,
+        this.tamaño, txt);
+    }
+    muévete() {
+      this.x = (this.x +
+        this.velocidad) %
+        innerWidth;
+      mueve(this.x, this.y,
+        this.sprite);
+    }
+  }
+  const fantasma =
+    new Horizontal2(0, 1, 64,
+      "👻");
+  const sonrisa =
+    new Horizontal2(90, 0.5, 72,
+      "😁");
+  setInterval(
+    () => {
+      fantasma.muévete();
+      sonrisa.muévete();
+    },
+    REFRESCO);
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Literal de Objeto");
+  const TAMAÑO = 64; // px
+  const REFRESCO = 5;
+  const X_MÍNIMA = 0;
+  const Y = innerHeight / 2;
+
+  const carita = {
+    x: X_MÍNIMA,
+    y: Y,
+    velocidad: 0.5,
+    sprite: sprite(X_MÍNIMA, Y,
+      TAMAÑO, "😄"),
+    muévete: () => {
+      carita.x = (carita.x +
+        carita.velocidad) %
+        innerWidth;
+      mueve(carita.x, carita.y,
+        carita.sprite);
+    }
+  }
+
+  setInterval(
+    () => carita.muévete(),
+    REFRESCO);
+</script>

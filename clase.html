@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Clase");
+  const REFRESCO = 5;
+
+  class Horizontal {
+    static inicia() {
+      Horizontal.x = 0;
+      this.y = innerHeight / 2;
+      this.velocidad = 0.5;
+      this.tamaño = 64;
+      this.sprite = sprite(
+        this.x, this.y,
+        this.tamaño, "😄");
+    }
+    static muévete() {
+      this.x = (this.x +
+        this.velocidad) %
+        innerWidth;
+      mueve(this.x, this.y,
+        this.sprite);
+    }
+  }
+
+  Horizontal.inicia();
+  setInterval(
+    () => Horizontal.muévete(),
+    REFRESCO);
+</script>

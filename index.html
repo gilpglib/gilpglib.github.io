@@ -11,13 +11,13 @@ https://gilpglib.github.io/j.js">
   // backgroundColor("blue");
   println("Hola");
   print("Esta es una prueba");
-  for (var i = 0; i < innerWidth; i += 20) {
+  for (let i = 0; i < innerWidth; i += 20) {
     sprite(i, 200, 16, "🛸");
   }
-  var x = 0;
-  var perro = sprite(x, 0, 32, "🐕‍🦺");
-  var x2 = 0;
-  var perro2 = sprite(x2, 100, 40, "🐕‍");
+  let x = 0;
+  const perro = sprite(x, 0, 32, "🐕‍🦺");
+  let x2 = 0;
+  const perro2 = sprite(x2, 100, 40, "🐕‍");
   setInterval(() => {
     mueve(x, x * 0.5, perro);
     if (seTocan(perro, perro2)) {

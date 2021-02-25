@@ -14,9 +14,9 @@ https://gilpglib.github.io/j.js">
   const X_MÍNIMA = 0;
   const X_MÁXIMA = innerWidth;
   const Y = innerHeight / 2;
-  var x = X_MÍNIMA;
-  var velocidad = A_LA_DERECHA;
-  var carita =
+  let x = X_MÍNIMA;
+  let velocidad = A_LA_DERECHA;
+  const carita =
     sprite(x, Y, TAMAÑO, "😄");
   setInterval(() => {
     mueve(x, Y, carita);
