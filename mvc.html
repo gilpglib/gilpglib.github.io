@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  class Modelo {
+    /** @param {number} a
+     * @param {number} b */
+    constructor(a, b) {
+      this.a = a;
+      this.b = b;
+      /** @type {number} */
+      this.resultado = null;
+      /** @type {Error} */
+      this.error = null;
+    }
+  }
+
+  /**
+   * @implements {Salida}
+   * @implements {SalidaError} */
+  class Vista {
+    constructor() {
+      /** @type {Modelo} */
+      this.modelo = null;
+      /** @type {Controlador} */
+      this.controlador =
+        new Controlador(this,
+          this);
+    }
+    muestra() {
+      title("MVC");
+      this.a = campo("a:");
+      println("");
+      println("");
+      this.b = campo("b:");
+      println("");
+      println("");
+      botón("Dividir",
+        () => this.divide());
+      println("");
+      println("");
+      this.salida = salida();
+    }
+    divide() {
+      const a =
+        parseFloat(this.a.value);
+      const b =
+        parseFloat(this.b.value);
+      this.modelo =
+        new Modelo(a, b);
+      this.controlador.
+        divide(this.modelo);
+      if (this.modelo.error) {
+        this.muestraError();
+      } else {
+        this.muestraResultado();
+      }
+    }
+    muestraResultado() {
+      this.salida.value =
+        this.modelo.resultado;
+    }
+    muestraError() {
+      console.error(
+        this.modelo.error);
+      this.salida.value =
+        this.modelo.error.message;
+    }
+  }
+
+  class Controlador {
+    /** Realiza una división.
+     * @param {Modelo} modelo
+     * @throws {Error} si los
+     *  parámetros no cumplen
+     *  con las validaciones. */
+    divide(modelo) {
+      try {
+        valida(!isNaN(modelo.a),
+          "a debe ser número.");
+        valida(!isNaN(modelo.b),
+          "b debe ser número.");
+        valida(modelo.b !== 0,
+          "b no puede ser 0.");
+        modelo.resultado =
+          modelo.a / modelo.b;
+      } catch (e) {
+        modelo.error = e;
+      }
+    }
+  }
+
+  const vista = new Vista();
+  vista.muestra();
+
+  function valida(cond, mensaje) {
+    if (!cond) {
+      throw new Error(mensaje);
+    }
+  }
+</script>

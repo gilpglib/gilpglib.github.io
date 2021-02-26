@@ -6,16 +6,33 @@ https://gilpglib.github.io/j.js">
 </script>
 <script>
   title("Excepciones");
-  const inA = campo("a:");
+  const cA = campo("a:");
   println("");
   println("");
-  const inB = campo("b:");
+  const cB = campo("b:");
   println("");
   println("");
   botón("Dividir", divide);
   println("");
   println("");
-  const outSalida = salida();
+  const sSalida = salida();
+  /** Valida que se cumpla una
+   * condición y si no, lanza una
+   * excepción.
+   * @param {any} cond condición
+   *  que se debe cumplir.
+   * @param {string} mensaje
+   *  mensaje que lleva la
+   *  excepción que se lanza
+   *  cuando la condición no se
+   *  cumple.
+   * @throws {Error} cuando la
+   *  condición no se cumple. */
+  function valida(cond, mensaje) {
+    if (!cond) {
+      throw new Error(mensaje);
+    }
+  }
   function divide() {
     try {
       /* La property "value" de
@@ -28,9 +45,9 @@ https://gilpglib.github.io/j.js">
        * "parseFloat" es NaN (o
        * sea, no es un número).*/
       const a =
-        parseFloat(inA.value);
+        parseFloat(cA.value);
       const b =
-        parseFloat(inB.value);
+        parseFloat(cB.value);
       /* Debe cumplirse que a
        * sea un número. */
       valida(!isNaN(a),
@@ -45,10 +62,10 @@ https://gilpglib.github.io/j.js">
       valida(b !== 0,
         "b no debe ser 0.");
       const resultado = a / b;
-      alert(resultado);
+      sSalida.value = resultado;
     } catch (e) {
       console.error(e);
-      outSalida.value = e.message;
+      sSalida.value = e.message;
     }
   }
 </script>

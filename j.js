@@ -143,17 +143,6 @@ function seTocan(e1, e2) {
     rE1.bottom >= rE2.top);
 }
 
-/** Valida que se cumpla una condición y si no, lanza una excepción.
- * @param {any} cond condición que se debe cumplir.
- * @param {string} mensaje mensaje que lleva la excepción que se lanza cuando la
- *  condición no se cumple.
- * @throws {Error} cuando la condición no se cumple. */
-function valida(cond, mensaje) {
-  if (!cond) {
-    throw new Error(mensaje);
-  }
-}
-
 /** Agrega un input con una etiqueta.
  * @param {string} txt texto del rótulo. */
 function campo(txt) {
