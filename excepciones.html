@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<script src="
+https://gilpglib.github.io/j.js">
+</script>
+<script>
+  title("Excepciones");
+  const inA = campo("a:");
+  println("");
+  println("");
+  const inB = campo("b:");
+  println("");
+  println("");
+  botón("Dividir", divide);
+  println("");
+  println("");
+  const outSalida = salida();
+  function divide() {
+    try {
+      /* La property "value" de
+       * un campo es el texto
+       * capturado.
+       * Si el texto es una
+       * cadena vacía o no
+       * representa un número, el
+       * valor devuelto por
+       * "parseFloat" es NaN (o
+       * sea, no es un número).*/
+      const a =
+        parseFloat(inA.value);
+      const b =
+        parseFloat(inB.value);
+      /* Debe cumplirse que a
+       * sea un número. */
+      valida(!isNaN(a),
+        "a debe ser un número.");
+      /* Debe cumplirse que b
+       * sea un número. */
+      valida(!isNaN(b),
+        "b debe ser un número.");
+      /* Debe cumplirse que b
+       * sea diferente de 0.
+       */
+      valida(b !== 0,
+        "b no debe ser 0.");
+      const resultado = a / b;
+      alert(resultado);
+    } catch (e) {
+      console.error(e);
+      outSalida.value = e.message;
+    }
+  }
+</script>

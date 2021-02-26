@@ -5,9 +5,9 @@ document.write(/* html */
   <link rel="icon" sizes="32x32"
     href="https://gilpglib.github.io/favicon.ico">
   <style>
-    h1 {font-family: sans-serif}
+    h1, label, .salida {font-family: sans-serif}
   </style>
-  <h1></h1><pre><output></output></pre>`);
+  <h1></h1><pre></pre>`);
 
 /** Asigna un título a la página.
  * @param {string} txt texto del título. */
@@ -20,15 +20,15 @@ function title(txt) {
 /** Muestra un texto sin hacer salto de línea.
  * @param {string} txt texto que se muestra. */
 function print(txt) {
-  let output = document.querySelector("output");
-  output.append(txt);
+  let pre = document.querySelector("pre");
+  pre.append(txt);
 }
 
 /** Muestra un texto y luego hace salto de línea.
  * @param {string} txt texto que se muestra. */
 function println(txt) {
-  let output = document.querySelector("output");
-  output.append(txt + "\n");
+  let pre = document.querySelector("pre");
+  pre.append(txt + "\n");
 }
 
 /** Crea un sprite en las coordenadas, tamaño
@@ -97,12 +97,12 @@ function botón(txt, fun) {
   let bot = document.createElement("button");
   bot.textContent = txt;
   bot.addEventListener("click", fun);
-  let output = document.querySelector("output");
-  output.append(bot);
+  let pre = document.querySelector("pre");
+  pre.append(bot);
 }
 
 /** Agrega un botón en las coordenadas indicadas, con un rótulo y el código
- * que ejecuta al hacerle clic,
+ * que ejecuta al hacerle clic.
  * @param {number} x coordenada x en pixeles.
  * @param {number} y coordenada y en pixeles.
  * @param {string} txt texto del rótulo.
@@ -152,4 +152,26 @@ function valida(cond, mensaje) {
   if (!cond) {
     throw new Error(mensaje);
   }
+}
+
+/** Agrega un input con una etiqueta.
+ * @param {string} txt texto del rótulo. */
+function campo(txt) {
+  let label = document.createElement("label");
+  label.append(txt);
+  label.append(document.createElement("br"));
+  let input = document.createElement("input");
+  let pre = document.querySelector("pre");
+  label.append(input);
+  pre.append(label);
+  return input;
+}
+
+/** Agrega un output. */
+function salida() {
+  let output = document.createElement("output");
+  output.classList.add("salida");
+  let pre = document.querySelector("pre");
+  pre.append(output);
+  return output;
 }
